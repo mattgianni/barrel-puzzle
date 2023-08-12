@@ -1,10 +1,14 @@
 # barrel-puzzle
 
-A simple puzzle game built with [React](https://reactjs.org/) and [Vite](https://vitejs.dev/), based on the Crackers Barrel puzzle.
+A simple puzzle game built with [React](https://reactjs.org/) and [Vite](https://vitejs.dev/), based on the Cracker Barrel puzzle.
 
-![Pegging](./src/assets/cb_pegging_tshirt_sm.png)
+![screen shot](./src/assets/cb_puzzle_ss.png)
 
-## Building
+## Try It
+
+[https://gianni.org/cracker](https://gianni.org/cracker)
+
+## Build It
 
 Use [npm](https://www.npmjs.com/) to install dependencies and run the development server:
 
