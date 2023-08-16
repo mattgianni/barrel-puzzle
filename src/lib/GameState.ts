@@ -18,6 +18,7 @@ export class GameStateManager {
     }
 
     reset = () => this.setState(GameStateManager.createInitialState())
+    random_reset = () => this.setState(GameStateManager.createRandomInitialState())
 
     getScore = () => Engine.score(this.state.board)
 
@@ -82,6 +83,12 @@ export class GameStateManager {
     getMoveCount = () => Array.from(this.moves.values()).reduce((acc, val) => acc + val.length, 0)
     getPegCount = () => this.state.board.reduce((acc, val) => acc + (val ? 1 : 0), 0)
     getTurnCount = () => 14 - this.getPegCount()
+
+    static createRandomInitialState = (): GameState => {
+        const board = Array(15).fill(true)
+        board[Math.floor(Math.random() * 15)] = false
+        return { selected: -1, board, pv: [] }
+    }
 
     static createInitialState = (): GameState => ({
         selected: -1,

@@ -5,7 +5,8 @@ import Variations from './Variations'
 import './Game.css'
 
 const Game = () => {
-    const [state, setState] = useState<GameState>(GameStateManager.createInitialState)
+    const [state, setState] = useState<GameState>(GameStateManager.createRandomInitialState)
+
     const game = new GameStateManager(state, setState)
 
     return (
@@ -41,12 +42,17 @@ const Game = () => {
                     </div>
                 </div>
                 <div className="stats-panel">
-                    <p>Turn: {game.getTurnCount()}</p>
-                    <p>Selected: {game.state.selected === -1 ? "none" : game.state.selected}</p>
                     <p>Pegs: {game.getPegCount()} remaining</p>
                     <p>Moves: {game.getMoveCount()} available</p>
                     <p>Score: {game.getScore()} points</p>
-                    <button onClick={() => game.getHint()}>Hint</button> <button onClick={() => game.reset()}>Reset</button>
+
+                    <button onClick={() => game.getHint()}>Hint</button>
+                    <br />
+                    <br />
+                    <br />
+
+                    <button onClick={() => game.reset()}>Reset</button>&nbsp;&nbsp;
+                    <button onClick={() => game.random_reset()}>Random</button>
                 </div>
             </div>
             <hr />
