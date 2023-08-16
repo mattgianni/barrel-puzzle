@@ -18,6 +18,7 @@ export class GameStateManager {
     }
 
     reset = () => this.setState(GameStateManager.createInitialState())
+    random_reset = () => this.setState(GameStateManager.createRandomInitialState())
 
     getScore = () => Engine.score(this.state.board)
 

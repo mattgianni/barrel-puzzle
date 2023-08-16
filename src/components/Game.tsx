@@ -6,7 +6,6 @@ import './Game.css'
 
 const Game = () => {
     const [state, setState] = useState<GameState>(GameStateManager.createRandomInitialState)
-    const [randomizeStart, setRandomizeStart] = useState<boolean>(false)
 
     const game = new GameStateManager(state, setState)
 
@@ -43,12 +42,17 @@ const Game = () => {
                     </div>
                 </div>
                 <div className="stats-panel">
-                    <p>Turn: {game.getTurnCount()}</p>
-                    <input type="checkbox" onChange={() => setRandomizeStart(!randomizeStart)} checked={randomizeStart} />
                     <p>Pegs: {game.getPegCount()} remaining</p>
                     <p>Moves: {game.getMoveCount()} available</p>
                     <p>Score: {game.getScore()} points</p>
-                    <button onClick={() => game.getHint()}>Hint</button> <button onClick={() => game.reset()}>Reset</button>
+
+                    <button onClick={() => game.getHint()}>Hint</button>
+                    <br />
+                    <br />
+                    <br />
+
+                    <button onClick={() => game.reset()}>Reset</button>&nbsp;&nbsp;
+                    <button onClick={() => game.random_reset()}>Random</button>
                 </div>
             </div>
             <hr />
