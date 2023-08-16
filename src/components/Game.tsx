@@ -5,7 +5,9 @@ import Variations from './Variations'
 import './Game.css'
 
 const Game = () => {
-    const [state, setState] = useState<GameState>(GameStateManager.createInitialState)
+    const [state, setState] = useState<GameState>(GameStateManager.createRandomInitialState)
+    const [randomizeStart, setRandomizeStart] = useState<boolean>(false)
+
     const game = new GameStateManager(state, setState)
 
     return (
@@ -42,7 +44,7 @@ const Game = () => {
                 </div>
                 <div className="stats-panel">
                     <p>Turn: {game.getTurnCount()}</p>
-                    <p>Selected: {game.state.selected === -1 ? "none" : game.state.selected}</p>
+                    <input type="checkbox" onChange={() => setRandomizeStart(!randomizeStart)} checked={randomizeStart} />
                     <p>Pegs: {game.getPegCount()} remaining</p>
                     <p>Moves: {game.getMoveCount()} available</p>
                     <p>Score: {game.getScore()} points</p>

@@ -83,6 +83,12 @@ export class GameStateManager {
     getPegCount = () => this.state.board.reduce((acc, val) => acc + (val ? 1 : 0), 0)
     getTurnCount = () => 14 - this.getPegCount()
 
+    static createRandomInitialState = (): GameState => {
+        const board = Array(15).fill(true)
+        board[Math.floor(Math.random() * 15)] = false
+        return { selected: -1, board, pv: [] }
+    }
+
     static createInitialState = (): GameState => ({
         selected: -1,
         board: [false, true, true, true, true, true, true, true, true, true, true, true, true, true, true],
