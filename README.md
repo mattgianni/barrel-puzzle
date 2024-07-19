@@ -24,12 +24,4 @@ npm install
 npm run build
 ```
 
-The application can also be deployed to a web host through SSH using
-[npm](https://www.npmjs.com/) (*using /cracker as the base path*):
-
-```bash
-npm install
-npm run deploy
-```
-
 There is also a `lint` and `preview` scripts available.
