@@ -2,7 +2,7 @@
 
 A simple puzzle game built with [React](https://reactjs.org/) and [Vite](https://vitejs.dev/), based on the Cracker Barrel puzzle.
 
-![screen shot](./src/assets/cb_puzzle_ss.png)
+![screen shot](./public/cb_puzzle_ss.gif)
 
 ## Try It
 
