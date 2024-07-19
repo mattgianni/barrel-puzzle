@@ -6,7 +6,7 @@ A simple puzzle game built with [React](https://reactjs.org/) and [Vite](https:/
 
 ## Try It
 
-[https://gianni.org/cracker](https://gianni.org/cracker)
+[https://gianni.org/cracker](https://gianni.org/cracker/index.html)
 
 ## Build It
 
