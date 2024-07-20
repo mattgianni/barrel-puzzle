@@ -1,27 +1,29 @@
-import { useState } from "react";
+import { useState, useTransition } from "react";
 import { GameState, GameStateManager } from "../lib/GameState";
 import Peg from "./Peg";
-import Variations from "./Variations";
 import github_logo from "../assets/github-mark.png";
 
 const Game = () => {
     const [state, setState] = useState<GameState>(
         GameStateManager.createRandomInitialState
     );
-
     const game = new GameStateManager(state, setState);
 
-    const handleHint = async () => {
-        await game.getHint();
+    const [, startHint] = useTransition();
+    const handleHintClick = () => {
+        startHint(() => {
+            game.getHint();
+            return;
+        });
     };
 
     return (
         <div className="w-full px-2 py-3 bg-white absolute left-0 right-0 m-auto">
-            <div className="font-bold text-center sm:text-left sm:mx-20 m-2 text-[7vw] lg:text-[72px]">
+            <div className="font-bold text-center m-2 text-[7vw] lg:text-[72px]">
                 Cracker Barrel Puzzle
             </div>
-            <hr className="m-2 [border-style:inset] border" />
-            <div className="grid grid-cols-2 sm:grid-cols-2 mx-0 my-auto justify-center">
+            {/* <hr className="m-2 [border-style:inset] border" /> */}
+            <div className="grid grid-cols-2 mx-0 my-auto justify-center">
                 <div className="grid">
                     <div className="grid justify-center grid-cols-[repeat(1,_15%)]">
                         <Peg index={0} game={game} />
@@ -58,7 +60,7 @@ const Game = () => {
                     <div className="mt-3">
                         <button
                             className="text-[3vw] lg:text-[31px] m-1 mt-2 bg-transparent hover:bg-blue-500 text-blue-700 hover:text-white py-[2px] px-2 border border-blue-500 hover:border-transparent rounded"
-                            onClick={handleHint}
+                            onClick={handleHintClick}
                         >
                             Hint
                         </button>
@@ -78,11 +80,7 @@ const Game = () => {
                 </div>
             </div>
 
-            <hr className="m-2 [border-style:inset] border" />
-
-            <div className="p-3 m-2 bg-[#dcb785] text-sm hidden">
-                <Variations pv={state.pv} />
-            </div>
+            <hr className="mt-4 sm:mt-6 [border-style:inset] border-2" />
 
             <div className="text-center">
                 <a
