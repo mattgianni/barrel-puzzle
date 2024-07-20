@@ -2,6 +2,7 @@ import { useState, useTransition } from "react";
 import { GameState, GameStateManager } from "../lib/GameState";
 import Peg from "./Peg";
 import github_logo from "../assets/github-mark.png";
+import ShareButton from "./ShareButton";
 
 const Game = () => {
     const [state, setState] = useState<GameState>(
@@ -51,13 +52,18 @@ const Game = () => {
                         <Peg index={14} game={game} />
                     </div>
                 </div>
-                <div className="py-[5px] text-[3vw] lg:text-[41px] my-auto">
-                    <div className="p-2">
-                        <p>Pegs: {game.getPegCount()} remaining</p>
-                        <p>Moves: {game.getMoveCount()} available</p>
-                        <p>Score: {game.getScore()} points</p>
+
+                <div className="grid grid-cols-1 py-[5px] text-[3vw] lg:text-[41px] my-auto max-w-fit">
+                    <div className="grid grid-cols-2 mx-auto">
+                        <div className="text-center text-[4vw] lg:text-[41px]  m-2 mr-4">
+                            Score: {game.getPegCount()}
+                        </div>
+                        <ShareButton
+                            score={game.getPegCount()}
+                            active={game.getMoveCount() == 0}
+                        />
                     </div>
-                    <div className="mt-3">
+                    <div className="mt-3 mx-auto">
                         <button
                             className="text-[3vw] lg:text-[31px] m-1 mt-2 bg-transparent hover:bg-blue-500 text-blue-700 hover:text-white py-[2px] px-2 border border-blue-500 hover:border-transparent rounded"
                             onClick={handleHintClick}

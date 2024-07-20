@@ -16,15 +16,21 @@ const Peg = (props: PegProps) => {
     const filled = game.state.board[index];
 
     const base_css =
-        "border-[1px] border-black border-solid m-[3px] text-center text-[2vw] align-middle p-0 h-[5vw] w-[5vw] leading-[5vw] rounded-[5vw] sm:h-[4vw] sm:w-[4vw] sm:leading-[4vw] sm:rounded-[4vw] lg:h-[5vw] lg:w-[5vw] lg:leading-[5vw] lg:rounded-[5vw]";
+        "select-none border-[1px] border-black border-solid m-[3px] text-center text-[2vw] align-middle p-0 h-[5vw] w-[5vw] leading-[5vw] rounded-[5vw] sm:h-[4vw] sm:w-[4vw] sm:leading-[4vw] sm:rounded-[4vw] lg:h-[5vw] lg:w-[5vw] lg:leading-[5vw] lg:rounded-[5vw]";
 
     return (
         <>
             <div
                 className={`${base_css}${
                     selected ? " bg-red-500 text-white font-bold" : ""
-                }${!selected && selectable ? " hover:cursor-pointer" : ""}${
-                    !selected && filled ? " bg-blue-800 text-white" : ""
+                }${
+                    !selected && selectable && filled
+                        ? " hover:cursor-pointer  bg-blue-500 text-white hover:bg-blue-300"
+                        : ""
+                }${
+                    !selected && filled && !selectable
+                        ? " bg-blue-800 text-white"
+                        : ""
                 }`}
                 onClick={() => game.handleClick(index)}
             >
