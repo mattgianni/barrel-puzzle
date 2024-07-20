@@ -16,7 +16,7 @@ const Peg = (props: PegProps) => {
     const filled = game.state.board[index];
 
     const base_css =
-        "border-[1px] border-black border-solid m-[3px] text-center text-[2vw] align-middle p-0 h-[5vw] w-[5vw] leading-[5vw] rounded-[5vw] ";
+        "border-[1px] border-black border-solid m-[3px] text-center text-[2vw] align-middle p-0 h-[5vw] w-[5vw] leading-[5vw] rounded-[5vw] sm:h-[4vw] sm:w-[4vw] sm:leading-[4vw] sm:rounded-[4vw] lg:h-[5vw] lg:w-[5vw] lg:leading-[5vw] lg:rounded-[5vw]";
 
     return (
         <>

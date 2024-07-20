@@ -18,8 +18,8 @@ const Game = () => {
     };
 
     return (
-        <div className="w-full px-2 py-3 bg-white absolute left-0 right-0 m-auto">
-            <div className="font-bold text-center m-2 text-[7vw] lg:text-[72px]">
+        <div className="w-full px-6 py-3 bg-white absolute left-0 right-0 m-auto">
+            <div className="font-bold text-center m-2 text-[6vw] lg:text-[72px]">
                 Cracker Barrel Puzzle
             </div>
             {/* <hr className="m-2 [border-style:inset] border" /> */}
@@ -51,7 +51,7 @@ const Game = () => {
                         <Peg index={14} game={game} />
                     </div>
                 </div>
-                <div className="py-[5px] text-[4vw] lg:text-[41px] my-auto">
+                <div className="py-[5px] text-[3vw] lg:text-[41px] my-auto">
                     <div className="p-2">
                         <p>Pegs: {game.getPegCount()} remaining</p>
                         <p>Moves: {game.getMoveCount()} available</p>
